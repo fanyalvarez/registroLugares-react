@@ -1,0 +1,62 @@
+import { useForm } from "react-hook-form";
+import { Input, Button, TextField, Stack } from "@mui/material";
+import { deepPurple, teal } from "@mui/material/colors";
+import { useNavigate } from "react-router-dom";
+import { postComment } from "../api/list.api";
+
+export default function FormComment() {
+  const colors = {
+    purple: deepPurple[200],
+    green: teal[400],
+    greenHover: teal[600],
+  };
+
+  // validar el form, submit, check errors,
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+  } = useForm();
+
+  const navigate = useNavigate();
+
+  // hacer el post y verlo en el json
+  const onSubmit = handleSubmit(async (data) => {
+    // console.log(data);
+    const respPost = await postComment(data);
+    console.log(respPost);
+    window.location.reload(false)
+  });
+
+  return (
+    <form onSubmit={onSubmit}>
+      <Stack spacing={2} margin={2}>
+        <TextField
+          fullWidth
+          label="Comentario"
+          multiline
+          rows={4}
+          {...register("comment", { required: true })}
+        />
+        {errors.comment && <span>El comentario es requerido</span>}
+        <Input fullWidth type="text" {...register("img", { required: true })} />
+        {errors.img && <span>La imagen es requerida</span>}
+        {/* <Input fullWidth accept="image/*" type="file"  {...register("description", { required: true })} /> */}
+
+        <Button
+          sx={{
+            backgroundColor: colors.green,
+            m: 2,
+            color: "white",
+            "&:hover": { backgroundColor: colors.greenHover },
+          }}
+          variant="content"
+          type="submit"
+        >
+          Guardar Comentario
+        </Button>
+      </Stack>
+    </form>
+  );
+}

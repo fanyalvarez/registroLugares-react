@@ -1,0 +1,36 @@
+
+
+npm install -g json-server
+json-server --watch db.json --port 3030
+
+
+    {
+      "id": 1,
+      "idUser": 1,
+      "nombre": "Museo Universitario del Chopo",
+      "descripcion": "El edificio es sumamente interesante. Vale la pena visitar la Librería y ver una de las funciones del Cinematógrafo. El personal de la Librería, Taquilla y los custodios son muy amables, todos muestran una excelente actitud de servicio",
+      "estado": "Ciudad de México",
+      "ciudad": "Cuauhtémoc",
+      "colonia": "Sta María la Ribera",
+      "calle": "Dr. Enrique González Martínez",
+      "numero": 10,
+      "cp": 6400 ,
+      "like": 20,
+      "dislike": 21
+
+  
+    },
+    {
+      "id": 2,
+      "idUser": 2,
+      "nombre": "Biblioteca Vasconcelos",
+      "descripcion": "La biblioteca Vasconcelos es un gigante con un archivo descomunal que, con seguridad, habrá un título entre sus anaqueles esperando a ser leído",
+      "estado": "Ciudad de México",
+      "ciudad": "Cuauhtémoc",
+      "colonia": "Buenavista",
+      "calle": "Eje 1 Nte.",
+      "numero": "S/N",
+      "cp": 6350,
+      "like": 30,
+      "dislike": 5
+    }

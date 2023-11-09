@@ -1,0 +1,158 @@
+import * as React from "react";
+import {
+  Input,
+  Button,
+  Box,
+  Card,
+  CardContent,
+  CardMedia,
+  Typography,
+  Dialog,
+  TextField,
+  DialogActions,
+  DialogContent,
+  DialogContentText,
+  DialogTitle,
+} from "@mui/material";
+import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
+import AttachFileIcon from "@mui/icons-material/AttachFile";
+
+import { deepPurple, teal } from "@mui/material/colors";
+
+export function CardPlacePage() {
+  const colors = {
+    purple: deepPurple[200],
+    green: teal[400],
+    greenHover: teal[600],
+  };
+  const [open, setOpen] = React.useState(false);
+
+  const handleClickOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
+
+  return (
+    <>
+      <Box sx={{ maxWidth: 600 }}>
+        <Card sx={{ p: 2, backgroundColor: colors.purple }}>
+          <CardContent>
+            <Box
+              sx={{
+                display: "flex",
+                justifyContent: "space-between",
+                alignItems: "center",
+                my: 2,
+              }}
+            >
+              <Typography variant="h5">lugar x sa de cv</Typography>
+              <Box
+                sx={{
+                  display: "flex",
+                  mr: 1,
+                  textAlign: "center",
+                }}
+              >
+                <ThumbUpOffAltIcon />
+                <Typography sx={{ mx: 1 }}> 10</Typography>
+              </Box>
+            </Box>
+            <Typography paragraph align="center">
+              calle direccion numero ### esatdo estado Mexico
+            </Typography>
+
+            <Typography paragraph align="center">
+              Lizards are a widespread group of squamate reptiles, with over
+              6,000 species, ranging across all continents except Antarctica
+            </Typography>
+          </CardContent>
+        </Card>
+        <Card sx={{ p: 2, backgroundColor: colors.purple }} align="center">
+          <Typography variant="h4" sx={{ mb: 3 }}>
+            COMENTARIOS
+          </Typography>
+          <CardContent>
+            <Typography variant="h5" textAlign="left" sx={{ mb: 3 }}>
+              Coraline Jones
+            </Typography>
+            <Typography textAlign="left" sx={{ mb: 3 }}>
+              Lizards are a widespread group of squamate reptiles, with over
+              6,000 species, ranging across all continents except Antarctica
+            </Typography>
+            <CardMedia component="img" height="200" image="42-3456x2304.jpg" />
+          </CardContent>
+          <CardContent>
+            <Typography variant="h5" textAlign="left" sx={{ mb: 3 }}>
+              Coraline Jones
+            </Typography>
+            <Typography textAlign="left" sx={{ mb: 3 }}>
+              Lizards are a widespread group of squamate reptiles, with over
+              6,000 species, ranging across all continents except Antarctica
+            </Typography>
+            <CardMedia component="img" height="200" image="42-3456x2304.jpg" />
+          </CardContent>
+        </Card>
+        <Button
+          sx={{
+            backgroundColor: colors.green,
+            m: 2,
+            color: "white",
+            "&:hover": { backgroundColor: colors.greenHover },
+          }}
+          variant="content"
+          onClick={handleClickOpen}
+        >
+          Anadir comentario
+        </Button>
+      </Box>
+
+      <Dialog open={open} onClose={handleClose}>
+        <DialogTitle>Anadir comentario</DialogTitle>
+        <DialogContent>
+          <TextField
+            fullWidth
+            label="Comentario"
+            multiline
+            rows={4}
+            margin="normal"
+          />
+          <Input
+            fullWidth
+            pt-3
+            accept="image/*"
+            type="file"
+            endIcon={<AttachFileIcon />}
+            sx={{ marginTop: 3 }}
+          />
+        </DialogContent>
+        <DialogActions>
+          <Button
+            sx={{
+              backgroundColor: colors.green,
+              m: 2,
+              color: "white",
+              "&:hover": { backgroundColor: colors.greenHover },
+            }}
+            onClick={handleClose}
+          >
+            Cancelar
+          </Button>
+          <Button
+            sx={{
+              backgroundColor: colors.green,
+              m: 2,
+              color: "white",
+              "&:hover": { backgroundColor: colors.greenHover },
+            }}
+            onClick={handleClose}
+          >
+            Guardar
+          </Button>
+        </DialogActions>
+      </Dialog>
+    </>
+  );
+}
