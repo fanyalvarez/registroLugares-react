@@ -7,8 +7,8 @@ import { postComment } from "../api/list.api";
 export default function FormComment() {
   const colors = {
     purple: deepPurple[200],
-    green: teal[400],
-    greenHover: teal[600],
+    pink: teal[400],
+    btnHover: teal[600],
   };
 
   // validar el form, submit, check errors,
@@ -46,10 +46,10 @@ export default function FormComment() {
 
         <Button
           sx={{
-            backgroundColor: colors.green,
+            backgroundColor: colors.pink,
             m: 2,
             color: "white",
-            "&:hover": { backgroundColor: colors.greenHover },
+            "&:hover": { backgroundColor: colors.btnHover },
           }}
           variant="content"
           type="submit"

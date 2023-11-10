@@ -13,7 +13,8 @@ import {
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
 import { useNavigate } from "react-router-dom";
-import { getAllList } from "../../api/list.api";
+import { getAllList } from "../api/list.api";
+import { colors } from "./styleBase";
 
 export function PlacesList() {
   const [places, setPlaces] = useState([]); // guardar elementos en vez de usar una variable
@@ -32,16 +33,29 @@ export function PlacesList() {
 
   return (
     <div>
-      <TableContainer component={Paper} sx={{ mt: 5 }}>
+      <TableContainer
+        component={Paper}
+        sx={{ mt: 5, backgroundColor: colors.brown }}
+      >
         <Table sx={{ minWidth: 650 }} aria-label="simple table">
-          <TableHead>
+          <TableHead sx={{ backgroundColor: colors.deepBrown }}>
             <TableRow>
-              <TableCell>Nombre</TableCell>
-              <TableCell align="center">Descripcion</TableCell>
-              <TableCell align="center">Direccion</TableCell>
-              <TableCell align="center">Like</TableCell>
-              <TableCell align="center">Disike</TableCell>
-              <TableCell align="center">Ver</TableCell>
+              <TableCell sx={{ color: colors.white }}>Nombre</TableCell>
+              <TableCell sx={{ color: colors.white }} align="center">
+                Descripcion
+              </TableCell>
+              <TableCell sx={{ color: colors.white }} align="center">
+                Direccion
+              </TableCell>
+              <TableCell sx={{ color: colors.white }} align="center">
+                Like
+              </TableCell>
+              <TableCell sx={{ color: colors.white }} align="center">
+                Disike
+              </TableCell>
+              <TableCell sx={{ color: colors.white }} align="center">
+                Ver
+              </TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
@@ -72,6 +86,12 @@ export function PlacesList() {
                 </TableCell>
                 <TableCell align="right">
                   <Button
+                    sx={{
+                      backgroundColor: colors.pink,
+                      m: 2,
+                      color: colors.white,
+                      "&:hover": { backgroundColor: colors.btnHover },
+                    }}
                     size="small"
                     variant="contained"
                     onClick={() => {

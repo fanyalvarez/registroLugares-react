@@ -1,9 +1,14 @@
-import { deepPurple, grey, teal } from "@mui/material/colors";
+import { pink, brown } from "@mui/material/colors";
 
 export const colors = {
-    purple: deepPurple[200],
-    purpleLigth: deepPurple[50],
-    green: teal[500],
-    greenHover: teal[500],
-    white: grey[100],
+    brown: brown[50],
+    deepBrown : brown[500],
+    pink: pink[900],
+
+
+    btnHover: pink[700],
+    iconHover: brown[100],
+
+
+    white: pink[50],
   };

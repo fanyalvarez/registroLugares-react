@@ -24,12 +24,18 @@ export function CommentsList() {
       {comments.map((comment) => (
         <CardContent key={comment.id}>
           <IconButton
-            sx={{ float: "right", p: 0, mr: 3, color: colors.green }}
+            sx={{
+              float: "right",
+              p: 0,
+              mr: 3,
+              color: colors.pink,
+              "&:hover": { backgroundColor: colors.btnHoverIcon },
+            }}
             onClick={() => {
               navigate(`/FormComments/${comment.id}`);
             }}
           >
-            <ModeIcon sx={{ color: colors.green }}></ModeIcon>
+            <ModeIcon sx={{ color: colors.pink }}></ModeIcon>
           </IconButton>
           <Typography variant="h5" textAlign="left" sx={{ mb: 3 }}>
             {comment.name}

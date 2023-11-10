@@ -36,7 +36,7 @@ export function CardPlacePage() {
 
   return (
     <Box sx={{ maxWidth: 600 }}>
-      <Card sx={{ p: 2, backgroundColor: colors.purple, my: 3 }}>
+      <Card sx={{ p: 2, backgroundColor: colors.brown, my: 3 }}>
         <CardContent>
           <Box
             sx={{
@@ -68,16 +68,16 @@ export function CardPlacePage() {
           </Typography>
         </CardContent>
       </Card>
-      <Card sx={{ p: 2, backgroundColor: colors.purple }} align="center">
+      <Card sx={{ p: 2, backgroundColor: colors.brown}} align="center">
         <CardHeader
           action={
             <IconButton
               sx={{
                 my: 3,
                 float: "right",
-                backgroundColor: colors.green,
+                backgroundColor: colors.pink,
                 color: "white",
-                "&:hover": { backgroundColor: colors.greenHover },
+                "&:hover": { backgroundColor: colors.btnHover },
               }}
               onClick={() => {
                 navigate("/FormComments");

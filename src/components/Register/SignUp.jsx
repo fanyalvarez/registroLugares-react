@@ -30,7 +30,7 @@ export function SignUp() {
   return (
     <div>
       {" "}
-      <Card sx={{ mt: 5 }}>
+      <Card sx={{ mt: 5,backgroundColor: colors.brown, }}>
         <CardHeader title="Inicio de sesion" sx={{ textAlign: "center" }} />
         <CardContent>
           <form onSubmit={onSubmit}>
@@ -86,10 +86,10 @@ export function SignUp() {
 
               <Button
                 sx={{
-                  backgroundColor: colors.green,
+                  backgroundColor: colors.pink,
                   m: 2,
                   color: "white",
-                  "&:hover": { backgroundColor: colors.greenHover },
+                  "&:hover": { backgroundColor: colors.btnHover },
                 }}
                 variant="content"
                 type="submit"

@@ -22,7 +22,7 @@ export function Login() {
   return (
     <div>
       {" "}
-      <Card sx={{ mt: 5 }}>
+      <Card sx={{ mt: 5,backgroundColor: colors.brown, }}>
         <CardHeader title="Inicio de sesion" sx={{ textAlign: "center" }} />
         <CardContent>
           <form action="">
@@ -45,10 +45,10 @@ export function Login() {
 
               <Button
                 sx={{
-                  backgroundColor: colors.green,
+                  backgroundColor: colors.pink,
                   m: 2,
                   color: "white",
-                  "&:hover": { backgroundColor: colors.greenHover },
+                  "&:hover": { backgroundColor: colors.btnHover },
                 }}
                 variant="content"
                 type="submit"

@@ -68,17 +68,21 @@ export function FormComments(props) {
   }, []);
 
   return (
-    <Card sx={{ mt: 5, backgroundColor: colors.purple }}>
+    <Card sx={{ mt: 5, backgroundColor: colors.brown }}>
       <CardHeader
         action={
           <IconButton
-            sx={{ float: "right", color: colors.green }}
+            sx={{
+              float: "right",
+              color: colors.pink,
+              "&:hover": { backgroundColor: colors.btnHoverIcon },
+            }}
             onClick={() => {
               window.history.back();
               // navigate(`/CardPlacePage/${params.id}`);
             }}
           >
-            <CloseIcon sx={{ color: colors.green }}></CloseIcon>
+            <CloseIcon sx={{ color: colors.pink }}></CloseIcon>
           </IconButton>
         }
         title="Formulario de comentario"
@@ -116,10 +120,10 @@ export function FormComments(props) {
 
             <Button
               sx={{
-                backgroundColor: colors.green,
+                backgroundColor: colors.pink,
                 m: 2,
                 color: "white",
-                "&:hover": { backgroundColor: colors.greenHover },
+                "&:hover": { backgroundColor: colors.btnHover },
               }}
               variant="content"
               type="submit"
@@ -133,10 +137,10 @@ export function FormComments(props) {
         {params.id && (
           <Button
             sx={{
-              backgroundColor: colors.green,
+              backgroundColor: colors.pink,
               m: 2,
               color: colors.white,
-              "&:hover": { backgroundColor: colors.greenHover },
+              "&:hover": { backgroundColor: colors.btnHover },
             }}
             variant="content"
             onClick={() => {
