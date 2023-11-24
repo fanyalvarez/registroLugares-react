@@ -12,7 +12,7 @@ export const getPlace = (id) => urlApi.get(`/lugares/${id}/`)
 
 // likes
 // export const upLikes = (id) => urlApi.put(`/lugares/${id}/`)
-export const upLikes = () => urlApi.put(`/lugares/1`)
+export const getLikesById = (id) => urlApi.put(`/lugares/${id}`)
 export const getLikes = () => urlApi.get(`/lugares/1`)
 
 

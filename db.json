@@ -11,10 +11,10 @@
       "calle": "Dr. Enrique González Martínez",
       "numero": 10,
       "cp": 6400,
-      "likes": {
+
         "like": 30,
         "dislike": 21
-      }
+
     },
     {
       "id": 2,
@@ -27,10 +27,10 @@
       "calle": "Eje 1 Nte.",
       "numero": "S/N",
       "cp": 6350,
-      "likes": {
+
         "like": 20,
         "dislike": 11
-      }
+
     }
   ],
   "comments": [

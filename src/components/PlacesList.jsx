@@ -12,25 +12,40 @@ import {
 } from "@mui/material";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
-import { useNavigate, useParams } from "react-router-dom";
-import { getAllList } from "../api/list.api";
+import { useNavigate } from "react-router-dom";
+import { getAllList, getLikesById } from "../api/list.api";
 import { colors } from "./styleBase";
-import PropTypes from "prop-types";
 
 export function PlacesList() {
+
   const navigate = useNavigate();
   const [places, setPlaces] = useState([]);
 
-  // cargar los datos
+
+  // ----consulta de lugares-----
   useEffect(() => {
     // console.log("pagina cargada");
     async function loadList() {
-      const resp = await getAllList();
-      setPlaces(resp.data); // guardar los datos desde usestate dentro de la peticion
-      // console.log(resp.data);
+      const respList = await getAllList();
+      setPlaces(respList.data);
+      console.log(places)
+
     }
     loadList();
   }, []);
+
+  // ----consulta de likes-----
+  const [likes, setLikes] = useState(0);
+
+  useEffect(() => {// cargar los likes
+    async function loadLikes() {
+      const resp = await getLikesById(1);
+      setLikes(resp.data);
+      console.log(likes)
+    }
+    loadLikes();
+  }, []);
+
 
   return (
     <>
@@ -77,16 +92,16 @@ export function PlacesList() {
 
                 <TableCell align="right" sx={{ minWidth: 60 }}>
                   <IconButton>
-                    <ThumbUpOffAltIcon></ThumbUpOffAltIcon>
+                    <ThumbUpOffAltIcon/>
                   </IconButton>
-                  {place.likes.like}
+                  {place.like}
                 </TableCell>
 
                 <TableCell align="right" sx={{ minWidth: 60 }}>
                   <IconButton>
-                    <ThumbDownOffAltIcon></ThumbDownOffAltIcon>
+                    <ThumbDownOffAltIcon/>
                   </IconButton>
-                  {place.likes.dislike}
+                  {place.dislike}
                 </TableCell>
                 <TableCell align="right">
                   <Button

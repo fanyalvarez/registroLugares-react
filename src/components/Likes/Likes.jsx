@@ -5,7 +5,7 @@ import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
 import { colors } from "../styleBase";
-import { upLikes, getLikes } from "../../api/list.api";
+import { getLikes } from "../../api/list.api";
 
 export function Likes() {
   const [likes, setLikes] = useState(0);
@@ -25,8 +25,8 @@ export function Likes() {
   useEffect(() => {// cargar los likes
     async function loadLikes() {
       const resp = await getLikes();
-      setLikes(resp.data.likes.like);
-      setDislikes(resp.data.likes.dislike);
+      setLikes(resp.data.like);
+      setDislikes(resp.data.dislike);
     }
     loadLikes();
   }, []);
@@ -36,6 +36,7 @@ export function Likes() {
 
   return (
     <div className="center">
+      
       <Box
         align="right"
         sx={{
