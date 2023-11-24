@@ -1,5 +1,10 @@
 import { PlacesList } from "../components/PlacesList";
 
 export function ListPage() {
-  return <PlacesList />;
+  return(
+
+  <div className="center">
+    <PlacesList />
+  </div>
+)
 }

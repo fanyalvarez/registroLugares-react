@@ -12,13 +12,14 @@ import {
 } from "@mui/material";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { getAllList } from "../api/list.api";
 import { colors } from "./styleBase";
+import PropTypes from "prop-types";
 
 export function PlacesList() {
-  const [places, setPlaces] = useState([]); // guardar elementos en vez de usar una variable
   const navigate = useNavigate();
+  const [places, setPlaces] = useState([]);
 
   // cargar los datos
   useEffect(() => {
@@ -32,12 +33,11 @@ export function PlacesList() {
   }, []);
 
   return (
-    <div>
+    <>
       <TableContainer
         component={Paper}
-        sx={{ mt: 5, backgroundColor: colors.brown }}
-      >
-        <Table sx={{ minWidth: 650 }} aria-label="simple table">
+        sx={{ mt: 5, backgroundColor: colors.brown, maxWidth: 1200 }}>
+        <Table sx={{}} aria-label="simple table">
           <TableHead sx={{ backgroundColor: colors.deepBrown }}>
             <TableRow>
               <TableCell sx={{ color: colors.white }}>Nombre</TableCell>
@@ -64,25 +64,29 @@ export function PlacesList() {
                 <TableCell component="th" scope="row">
                   {place.nombre}
                 </TableCell>
-                <TableCell sx={{ maxWidth: 300 }}>
+                <TableCell sx={{ maxWidth: 300, minWidth: 200 }}>
                   {place.descripcion}
                 </TableCell>
                 <TableCell
                   align="center"
-                  sx={{ maxWidth: 300 }}
-                >{`${place.calle} #${place.numero} Col.${place.colonia} 
+                  sx={{
+                    maxWidth: 300,
+                    minWidth: 150,
+                  }}>{`${place.calle} #${place.numero} Col.${place.colonia} 
               ${place.ciudad} ${place.estado} C.P.${place.cp}`}</TableCell>
-                <TableCell align="right">
+
+                <TableCell align="right" sx={{ minWidth: 60 }}>
                   <IconButton>
                     <ThumbUpOffAltIcon></ThumbUpOffAltIcon>
                   </IconButton>
-                  {place.like}
+                  {place.likes.like}
                 </TableCell>
-                <TableCell align="right">
+
+                <TableCell align="right" sx={{ minWidth: 60 }}>
                   <IconButton>
                     <ThumbDownOffAltIcon></ThumbDownOffAltIcon>
                   </IconButton>
-                  {place.dislike}
+                  {place.likes.dislike}
                 </TableCell>
                 <TableCell align="right">
                   <Button
@@ -96,8 +100,7 @@ export function PlacesList() {
                     variant="contained"
                     onClick={() => {
                       navigate(`/CardPlacePage/${place.id}`);
-                    }}
-                  >
+                    }}>
                     Ir
                   </Button>
                 </TableCell>
@@ -106,6 +109,6 @@ export function PlacesList() {
           </TableBody>
         </Table>
       </TableContainer>
-    </div>
+    </>
   );
 }

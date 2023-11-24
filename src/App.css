@@ -1,3 +1,5 @@
 body{
-  display: grid;
+  display: flex;
+  align-items: center;
+  justify-content: center; 
 }

@@ -3,12 +3,17 @@ body {
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   background-image: url(../public/bg.jpg);
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  text-align: center;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.center {
+  /* background-color: cadetblue; */
+  display: flex;
+  align-content: center;
+  justify-content: center;
 }

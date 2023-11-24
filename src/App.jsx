@@ -5,13 +5,14 @@ import { Navigation } from "./components/Navigation";
 import { FormComments } from "./components/Card/FormComments";
 import { Login } from "./components/Register/Login";
 import { SignUp } from "./components/Register/SignUp";
-import { LandinPage } from "./pages/LandinPage";
+import { LandingPage } from "./pages/LandinPage";
+import {Likes} from "./components/Likes/Likes"
 
 function App() {
   return (
     <BrowserRouter>
       <Navigation />
-
+      
       <Routes>
         <Route path="/CardPlacePage/:id" element={<CardPlacePage />} />
         <Route path="/ListPage" element={<ListPage />} />
@@ -19,8 +20,10 @@ function App() {
         <Route path="/FormComments/:id" element={<FormComments />} />
         <Route path="/SignUp/" element={<SignUp />} />
         <Route path="/Login/" element={<Login />} />
-        <Route path="/LandinPage/" element={<LandinPage />} />
+        <Route path="/Likes/" element={<Likes />} />
+        <Route path="/" element={<LandingPage />} />
       </Routes>
+  
     </BrowserRouter>
   );
 }
