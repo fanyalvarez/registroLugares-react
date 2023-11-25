@@ -18,14 +18,12 @@ export function CardPlacePage() {
   const navigate = useNavigate();
   const params = useParams();
   const [place, setPlace] = useState({});
-  const [likesObj, setLikesObj] = useState({})
   // console.log(place)
 
   useEffect(() => {
     async function loadPlace() {
       const resp = await getPlace(params.id);
       setPlace(resp.data);
-      setLikesObj(resp.data.likes)
     }
     loadPlace();
   }, []);
@@ -52,7 +50,7 @@ export function CardPlacePage() {
                 }}>
                 <ThumbUpOffAltIcon />
            
-                <Typography sx={{ mx: 1 }}>{likesObj.like}</Typography>
+                <Typography sx={{ mx: 1 }}>{place.like}</Typography>
               </Box>
             </Box>
             <Typography paragraph align="center">

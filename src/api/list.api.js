@@ -9,11 +9,13 @@ const urlApi = axios.create({ baseURL: 'http://localhost:3030/' })
 // export const getAllList = () => axios.get("http://localhost:3030/lugares");
 export const getAllList = () => urlApi.get("/lugares/")
 export const getPlace = (id) => urlApi.get(`/lugares/${id}/`)
+export const postPlace = (place) => urlApi.post(`/lugares`, place)
 
 // likes
 // export const upLikes = (id) => urlApi.put(`/lugares/${id}/`)
-export const getLikesById = (id) => urlApi.put(`/lugares/${id}`)
+export const getLikesById = (id) => urlApi.get(`/lugares/${id}`)
 export const getLikes = () => urlApi.get(`/lugares/1`)
+export const upLikes = (number) => urlApi.put(`/lugares/1`, number)
 
 
 

@@ -12,7 +12,6 @@ code {
 }
 
 .center {
-  /* background-color: cadetblue; */
   display: flex;
   align-content: center;
   justify-content: center;

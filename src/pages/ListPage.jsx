@@ -1,4 +1,4 @@
-import { PlacesList } from "../components/PlacesList";
+import { PlacesList } from "../components/Place/PlacesList";
 
 export function ListPage() {
   return(
