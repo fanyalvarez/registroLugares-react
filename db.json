@@ -9,7 +9,7 @@
       "colonia": "Sta María la Ribera",
       "calle": "Dr. Enrique González Martínez",
       "numero": 10,
-      "cp": 6400,
+      "cp": "6400",
       "like": 30,
       "dislike": 21
     },
@@ -22,9 +22,22 @@
       "colonia": "Buenavista",
       "calle": "Eje 1 Nte.",
       "numero": "S/N",
-      "cp": 6350,
+      "cp": "6350",
       "like": 20,
       "dislike": 11
+    },
+    {
+      "like": 0,
+      "dislike": 0,
+      "nombre": "Cafeteria serena",
+      "descripcion": "wdqwdq",
+      "calle": "1111",
+      "numero": "11",
+      "colonia": "11",
+      "ciudad": "111",
+      "estado": "11",
+      "cp": "02090",
+      "id": 3
     }
   ],
   "comments": [

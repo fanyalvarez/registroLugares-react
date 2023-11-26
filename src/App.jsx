@@ -20,15 +20,22 @@ function App() {
       <Navigation />
 
       <Routes>
-        <Route path="/CardPlacePage/:id" element={<CardPlacePage />} />
-        <Route path="/ListPage" element={<ListPage />} />
-        <Route path="/FormComments" element={<FormComments />} />
-        <Route path="/FormComments/:id" element={<FormComments />} />
+        <Route path="/" element={<LandingPage />} />
         <Route path="/SignUp/" element={<SignUp />} />
         <Route path="/Login/" element={<Login />} />
-        <Route path="/Likes/" element={<Likes />} />
+
+
+        <Route path="/ListPage" element={<ListPage />} />
         <Route path="/FormPlace" element={<FormPlace/>} />
-        <Route path="/" element={<LandingPage />} />
+        <Route path="/FormPlace/:id" element={<FormPlace />} />
+
+
+        <Route path="/CardPlacePage/:id" element={<CardPlacePage />} />
+        <Route path="/FormComments" element={<FormComments />} />
+        <Route path="/FormComments/:id" element={<FormComments />} />
+
+        
+        <Route path="/Likes/" element={<Likes />} />
       </Routes>
     </BrowserRouter>
   );

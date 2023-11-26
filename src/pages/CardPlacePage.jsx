@@ -12,7 +12,7 @@ import AddIcon from "@mui/icons-material/Add";
 import { useState, useEffect } from "react";
 import { CommentsList } from "../components/Card/CommentsList";
 import { colors } from "../components/styleBase";
-import { getPlace, getAllList } from "../api/list.api";
+import { getPlaceById, getAllList } from "../api/list.api";
 
 export function CardPlacePage() {
   const navigate = useNavigate();
@@ -22,7 +22,7 @@ export function CardPlacePage() {
 
   useEffect(() => {
     async function loadPlace() {
-      const resp = await getPlace(params.id);
+      const resp = await getPlaceById(params.id);
       setPlace(resp.data);
     }
     loadPlace();
