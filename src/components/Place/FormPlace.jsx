@@ -58,6 +58,7 @@ export function FormPlace() {
     }
     loadPLace();
   }, []);
+  
   //delete place
   const params = useParams();
 

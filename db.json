@@ -57,15 +57,24 @@
   "users": [
     {
       "id": 1,
+      "userName": "coralineJ",
       "name": "coraline",
       "lastName": "jones",
-      "password": 1232421
+      "password": 1111
     },
     {
       "id": 2,
+      "userName": "wybieL",
       "name": "Wybie",
       "lastName": "Lovat",
-      "password": 1232421
+      "password": 2222
+    },
+    {
+      "userName": "fanalv",
+      "name": "Fany",
+      "lastName": "Alvarez",
+      "password": "3333",
+      "id": 3
     }
   ]
 }

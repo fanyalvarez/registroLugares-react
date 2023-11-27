@@ -5,7 +5,7 @@ import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
 import { colors } from "../styleBase";
-import { getLikes, upLikes } from "../../api/list.api";
+import { getLikes } from "../../api/list.api";
 
 export function Likes() {
   const [likes, setLikes] = useState(0);
@@ -16,7 +16,6 @@ export function Likes() {
   const onLikes = () => {
     setIsLike((current) => !current);
     isLike === true ? setLikes(likes - 1) : setLikes(likes + 1);
-    // upLikes(likes)
   };
   const onDislikes = () => {
     setIsDislike((current) => !current);
