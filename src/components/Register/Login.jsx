@@ -1,3 +1,4 @@
+import { useForm } from "react-hook-form";
 import {
   Card,
   Box,
@@ -9,18 +10,44 @@ import {
   TextField,
   CardMedia,
   Stack,
+  Alert,
 } from "@mui/material";
-import { useForm } from "react-hook-form";
-import { useNavigate, useParams } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { colors } from "../styleBase";
+import { useEffect, useState } from "react";
+import { getAllUsers } from "../../api/list.api";
 
 export function Login() {
   const {
     register,
     handleSubmit,
     formState: { errors },
-    setValue,
   } = useForm();
+  const [users, setUsers] = useState([]);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    async function loadUsers() {
+      const respUsers = (await getAllUsers()).data;
+      setUsers(respUsers);
+    }
+    loadUsers();
+  }, []);
+
+  const onSubmit = handleSubmit((data) => {
+    const findIndex = users.findIndex(
+      (element) => element.userName === data.userName
+    );
+    if (findIndex === -1) {
+      window.alert("los datos ingresados son incorrectos");
+    } else if (users[findIndex].password !== data.password) {
+      window.alert("los datos ingresados son incorrectos");
+    } else {
+      window.alert("bienvenido");
+      navigate(`/`);
+    }
+  });
+
   return (
     <div className="center">
       <Card sx={{ mt: 5, backgroundColor: colors.brown, width: 620 }}>
@@ -28,7 +55,7 @@ export function Login() {
 
         <Box sx={{ display: "flex", mr: 2 }}>
           <CardContent sx={{ minWidth: 300, minHeight: 310 }}>
-            <form action="" sx={{ mt: 5 }}>
+            <form onSubmit={onSubmit} sx={{ mt: 5 }}>
               <Stack spacing={2} margin={2}>
                 <Input
                   placeholder="User name"
@@ -36,7 +63,7 @@ export function Login() {
                   type="text"
                   {...register("userName", { required: true })}
                 />
-                {errors.userName && <span>EL dato es requerido</span>}
+                {errors.nombre && <span>El dato es requerido</span>}
 
                 <Input
                   placeholder="Contrasena"
@@ -44,8 +71,7 @@ export function Login() {
                   type="text"
                   {...register("password", { required: true })}
                 />
-                {errors.password && <span>EL dato es requerido</span>}
-
+                {errors.nombre && <span>El dato es requerido</span>}
                 <Button
                   sx={{
                     backgroundColor: colors.pink,
