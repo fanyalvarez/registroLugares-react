@@ -9,7 +9,7 @@ import {
   IconButton,
   TableRow,
   Button,
-  Box
+  Box,
 } from "@mui/material";
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
@@ -42,6 +42,7 @@ export function PlacesList() {
   const [dislikes, setDislikes] = useState(0);
   const [isLike, setIsLike] = useState(false);
   const [isDislike, setIsDislike] = useState(false);
+  const [prueba, setPrueba] = useState(0);
 
   const onLikes = () => {
     setIsLike((current) => !current);
@@ -125,6 +126,7 @@ export function PlacesList() {
                     )}
                   </IconButton>
                   {likes}
+  
                 </TableCell>
                 {/* dislikes */}
                 <TableCell sx={{ minWidth: 60 }}>
