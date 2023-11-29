@@ -15,7 +15,6 @@ export function Navigation() {
           <Box>
             <Button><Link spacing={2} to="/ListPage">Lista de lugares</Link></Button>
             <Button><Link spacing={2} to="/FormPlace">Agregar Lugar</Link></Button>
-            <Button><Link spacing={2} to="/Likes">Likes</Link></Button>
           </Box>
           <Box>
             <Button><Link spacing={2} to="/SignUp">Sign up</Link></Button>
