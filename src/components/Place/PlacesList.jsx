@@ -16,9 +16,8 @@ import ThumbDownOffAltIcon from "@mui/icons-material/ThumbDownOffAlt";
 import ThumbUpIcon from "@mui/icons-material/ThumbUp";
 import ThumbDownAltIcon from "@mui/icons-material/ThumbDownAlt";
 import EditIcon from "@mui/icons-material/Edit";
-
 import { useNavigate } from "react-router-dom";
-import { getAllList, getLikesById } from "../../api/list.api";
+import { getAllList, uplikes } from "../../api/list.api";
 import { colors } from "../styleBase";
 
 export function PlacesList() {
@@ -26,6 +25,8 @@ export function PlacesList() {
 
   // ----consulta de lugares-----
   const [places, setPlaces] = useState([]);
+  const [isDislike, setIsDislike] = useState(false);
+  const [isLike, setIsLike] = useState(false);
 
   useEffect(() => {
     // console.log("pagina cargada");
@@ -35,35 +36,24 @@ export function PlacesList() {
       // console.log(places)
     }
     loadList();
-  }, []);
+  }, [isDislike, isLike]);
 
   // ----likes-----
-  const [likes, setLikes] = useState(0);
-  const [dislikes, setDislikes] = useState(0);
-  const [isLike, setIsLike] = useState(false);
-  const [isDislike, setIsDislike] = useState(false);
-  const [prueba, setPrueba] = useState(0);
-
-  const onLikes = () => {
+  const addLike = async (id, originLike) => {
+    // console.log(id);
+    // console.log(originLike);
     setIsLike((current) => !current);
-    isLike === true ? setLikes(likes - 1) : setLikes(likes + 1);
-  };
-  const onDislikes = () => {
-    setIsDislike((current) => !current);
-    isDislike === true ? setDislikes(dislikes - 1) : setDislikes(dislikes + 1);
+    isLike === true
+      ? await uplikes(id, { like: originLike - 1 })
+      : await uplikes(id, { like: originLike + 1 });
   };
 
-  // ----cargar likes ----
-  useEffect(() => {
-    async function loadLikes() {
-      const resp = await getLikesById(1);
-      setLikes(resp.data.like);
-      setDislikes(resp.data.dislike);
-      // console.log(likes);
-      // console.log(dislikes);
-    }
-    loadLikes();
-  }, []);
+  const addDislike = async (id, originLike) => {
+    setIsDislike((current) => !current);
+    isDislike === true
+      ? await uplikes(id, { dislike: originLike - 1 })
+      : await uplikes(id, { dislike: originLike + 1 });
+  };
 
   return (
     <>
@@ -118,26 +108,26 @@ export function PlacesList() {
                 </TableCell>
                 {/* likes */}
                 <TableCell sx={{ minWidth: 60 }}>
-                  <IconButton onClick={onLikes}>
-                    {isLike ? (
+                  <IconButton onClick={() => addLike(place.id, place.like)}>
+                    {isLike && place.id ? (
                       <ThumbUpIcon sx={{ color: colors.pink }} />
                     ) : (
                       <ThumbUpOffAltIcon />
                     )}
                   </IconButton>
-                  {likes}
-  
+                  {place.like}
                 </TableCell>
                 {/* dislikes */}
                 <TableCell sx={{ minWidth: 60 }}>
-                  <IconButton onClick={onDislikes}>
+                  <IconButton
+                    onClick={() => addDislike(place.id, place.dislike)}>
                     {isDislike ? (
                       <ThumbDownAltIcon sx={{ color: colors.pink }} />
                     ) : (
                       <ThumbDownOffAltIcon />
                     )}
                   </IconButton>
-                  {dislikes}
+                  {place.dislike}
                 </TableCell>
                 {/* ir */}
                 <TableCell>

@@ -26,9 +26,3 @@ export const upComment = (id, textComment) => axios.put(`http://localhost:3030/c
 export const postUser = (user) => urlApi.post("/users/", user)
 export const getAllUsers = () => urlApi.get("/users/")
 
-
-// likes
-export const getLikesById = (id) => urlApi.get(`/lugares/${id}`)
-export const getLikes = () => urlApi.get(`/lugares/1`)
-
-

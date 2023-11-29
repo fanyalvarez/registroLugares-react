@@ -1,7 +1,6 @@
 {
   "lugares": [
     {
-      "1": "",
       "id": 1,
       "nombre": "Museo Universitario del Chopo",
       "descripcion": "El edificio es sumamente interesante. Vale la pena visitar la Librería y ver una de las funciones del Cinematógrafo. El personal de la Librería, Taquilla y los custodios son muy amables, todos muestran una excelente actitud de servicio",
@@ -11,11 +10,10 @@
       "calle": "Dr. Enrique González Martínez",
       "numero": 10,
       "cp": "6400",
-      "like": 30,
-      "dislike": 21
+      "like": 12,
+      "dislike": 23
     },
     {
-      "1": "",
       "id": 2,
       "nombre": "Biblioteca Vasconcelos",
       "descripcion": "La biblioteca Vasconcelos es un gigante con un archivo descomunal que, con seguridad, habrá un título entre sus anaqueles esperando a ser leído",
@@ -29,7 +27,6 @@
       "dislike": 11
     },
     {
-      "1": "",
       "like": 0,
       "dislike": 0,
       "nombre": "Cafeteria serena",
