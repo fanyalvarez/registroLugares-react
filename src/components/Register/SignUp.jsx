@@ -15,6 +15,7 @@ import { colors } from "../styleBase";
 import { postUser } from "../../api/list.api";
 
 export function SignUp() {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -22,9 +23,14 @@ export function SignUp() {
   } = useForm();
 
   const onSubmit = handleSubmit(async (data) => {
-    console.log(data)
     const sendUser = await postUser(data);
-    console.log(sendUser);
+    // console.log(sendUser.status);
+    if (sendUser.status === 201) {
+      window.alert("Tu usuario fue guardado");
+      navigate(`/Login/`);
+    } else {
+      window.alert("Ha ocurrido un error, intentar nuevamente");
+    }
   });
 
   return (

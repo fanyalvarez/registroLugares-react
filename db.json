@@ -83,11 +83,18 @@
       "id": 3
     },
     {
-      "userName": "israel1",
-      "name": "israel",
-      "lastName": "salinas",
-      "password": "1234",
+      "userName": "fanalv",
+      "name": "Fany",
+      "lastName": "Alvarez",
+      "password": "3333",
       "id": 4
+    },
+    {
+      "userName": "fanalv",
+      "name": "Fany",
+      "lastName": "Alvarez",
+      "password": "3333",
+      "id": 5
     }
   ]
 }
