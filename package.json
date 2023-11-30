@@ -8,8 +8,8 @@
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
     "preview": "vite preview",
-    "server": "json-server --watch db.json --port 3030",
-    "start": "node api/server.js"
+    "server": "json-server --watch db.json --port 3030"
+
   },
   "dependencies": {
     "@emotion/react": "^11.11.1",
@@ -20,9 +20,6 @@
     "@mui/icons-material": "^5.14.13",
     "@mui/material": "^5.14.13",
     "axios": "^1.6.0",
-    "cors": "^2.8.5",
-    "json-serve": "^0.1.0",
-    "json-server": "^0.17.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.47.0",
@@ -38,10 +35,5 @@
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
     "vite": "^4.4.5"
-  },
-  "description": "<!-- json-server --watch db.json --port 3030 -->",
-  "main": "api/server.js",
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  }
 }
