@@ -10,10 +10,10 @@
       "calle": "Dr. Enrique González Martínez",
       "numero": 10,
       "cp": "6400",
-      "stateLike": false,
+      "stateLike": true,
       "stateDislike": false,
-      "like": 22,
-      "dislike": 24
+      "like": 25,
+      "dislike": 23
     },
     {
       "id": 2,
@@ -25,15 +25,15 @@
       "calle": "Eje 1 Nte.",
       "numero": "S/N",
       "cp": "6350",
-      "stateLike": true,
-      "stateDislike": false,
-      "like": 20,
-      "dislike": 10
+      "stateLike": false,
+      "stateDislike": true,
+      "like": 10,
+      "dislike": 11
     },
     {
-      "stateLike": false,
+      "stateLike": true,
       "stateDislike": false,
-      "like": 15,
+      "like": 1,
       "dislike": 0,
       "nombre": "Cafeteria serena",
       "descripcion": "wdqwdq",

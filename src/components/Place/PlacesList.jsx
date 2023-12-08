@@ -46,6 +46,16 @@ export function PlacesList() {
       const handleChange = setChange((current) => !current);
     }
   };
+  const addDislike = async (id, originLike, originState) => {
+    let estado = originState;
+    if (!estado) {
+      await uplikes(id, { dislike: originLike + 1, stateDislike: true });
+      const handleChange = setChange((current) => !current);
+    } else {
+      await uplikes(id, { dislike: originLike - 1, stateDislike: false });
+      const handleChange = setChange((current) => !current);
+    }
+  };
 
   //
 
