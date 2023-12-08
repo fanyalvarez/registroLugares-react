@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import {
   Paper,
   TableContainer,
@@ -22,12 +22,10 @@ import { colors } from "../styleBase";
 
 export function PlacesList() {
   const navigate = useNavigate();
+  const [change, setChange] = useState(true);
 
   // ----consulta de lugares-----
   const [places, setPlaces] = useState([]);
-  const [isDislike, setIsDislike] = useState(false);
-  const [isLike, setIsLike] = useState(false);
-
   useEffect(() => {
     // console.log("pagina cargada");
     async function loadList() {
@@ -36,24 +34,34 @@ export function PlacesList() {
       // console.log(places)
     }
     loadList();
-  }, [isDislike, isLike]);
-
+  }, [change]);
   // ----likes-----
-  const addLike = async (id, originLike) => {
-    // console.log(id);
-    // console.log(originLike);
-    setIsLike((current) => !current);
-    isLike === true
-      ? await uplikes(id, { like: originLike - 1 })
-      : await uplikes(id, { like: originLike + 1 });
+  const addLike = async (id, originLike, originState) => {
+    let estado = originState;
+    if (!estado) {
+      await uplikes(id, { like: originLike + 1, stateLike: true });
+      const handleChange = setChange((current) => !current);
+    } else {
+      await uplikes(id, { like: originLike - 1, stateLike: false });
+      const handleChange = setChange((current) => !current);
+    }
   };
 
-  const addDislike = async (id, originLike) => {
-    setIsDislike((current) => !current);
-    isDislike === true
-      ? await uplikes(id, { dislike: originLike - 1 })
-      : await uplikes(id, { dislike: originLike + 1 });
-  };
+  //
+
+  // const addDislike = async (id, originLike, state) => {
+  //   setIsDislike((current) => !current);
+  //   // isDislike === true
+  //   //   ? await uplikes(id, { dislike: originLike - 1 })
+  //   //   : await uplikes(id, { dislike: originLike + 1 });
+
+  //   if (isDislike) {
+  //     await uplikes(id, { dislike: originLike - 1 });
+  //     <ThumbDownAltIcon sx={{ color: colors.pink }} />;
+  //   } else {
+  //     await uplikes(id, { dislike: originLike + 1 });
+  //   }
+  // };
 
   return (
     <>
@@ -106,10 +114,14 @@ export function PlacesList() {
                   {`${place.calle} #${place.numero} Col.${place.colonia} 
               ${place.ciudad} ${place.estado} C.P.${place.cp}`}
                 </TableCell>
+
                 {/* likes */}
                 <TableCell sx={{ minWidth: 60 }}>
-                  <IconButton onClick={() => addLike(place.id, place.like)}>
-                    {isLike && place.id ? (
+                  <IconButton
+                    onClick={() =>
+                      addLike(place.id, place.like, place.stateLike)
+                    }>
+                    {place.stateLike ? (
                       <ThumbUpIcon sx={{ color: colors.pink }} />
                     ) : (
                       <ThumbUpOffAltIcon />
@@ -117,16 +129,28 @@ export function PlacesList() {
                   </IconButton>
                   {place.like}
                 </TableCell>
+
                 {/* dislikes */}
                 <TableCell sx={{ minWidth: 60 }}>
                   <IconButton
-                    onClick={() => addDislike(place.id, place.dislike)}>
-                    {isDislike ? (
+                    onClick={() =>
+                      addDislike(place.id, place.dislike, place.stateDislike)
+                    }>
+                    {place.stateDislike ? (
                       <ThumbDownAltIcon sx={{ color: colors.pink }} />
                     ) : (
                       <ThumbDownOffAltIcon />
                     )}
                   </IconButton>
+
+                  {/* <IconButton
+                    onClick={() => addDislike(place.id, place.dislike)}>
+                    {isDislike ? (
+                      <ThumbDownAltIcon sx={{ color: colors.pink }} />
+                    ) : (
+                      
+                    )}
+                  </IconButton> */}
                   {place.dislike}
                 </TableCell>
                 {/* ir */}

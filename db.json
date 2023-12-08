@@ -10,8 +10,10 @@
       "calle": "Dr. Enrique González Martínez",
       "numero": 10,
       "cp": "6400",
-      "like": 12,
-      "dislike": 23
+      "stateLike": false,
+      "stateDislike": false,
+      "like": 22,
+      "dislike": 24
     },
     {
       "id": 2,
@@ -23,11 +25,15 @@
       "calle": "Eje 1 Nte.",
       "numero": "S/N",
       "cp": "6350",
+      "stateLike": true,
+      "stateDislike": false,
       "like": 20,
-      "dislike": 11
+      "dislike": 10
     },
     {
-      "like": 0,
+      "stateLike": false,
+      "stateDislike": false,
+      "like": 15,
       "dislike": 0,
       "nombre": "Cafeteria serena",
       "descripcion": "wdqwdq",
@@ -52,12 +58,6 @@
       "img": "https://picsum.photos/590",
       "name": "Wybie Lovat",
       "id": 3
-    },
-    {
-      "comment": "kscasidaod131241",
-      "img": "https://picsum.photos/584",
-      "name": "israel",
-      "id": 4
     }
   ],
   "users": [
