@@ -32,9 +32,9 @@
     },
     {
       "stateLike": true,
-      "stateDislike": false,
+      "stateDislike": true,
       "like": 1,
-      "dislike": 0,
+      "dislike": 1,
       "nombre": "Cafeteria serena",
       "descripcion": "wdqwdq",
       "calle": "1111",
