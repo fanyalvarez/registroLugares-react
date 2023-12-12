@@ -18,7 +18,7 @@ export function CardPlacePage() {
   const navigate = useNavigate();
   const params = useParams();
   const [place, setPlace] = useState({});
-  // console.log(place)
+  const [placeId, setPlaceId] = useState(params.id);
 
   useEffect(() => {
     async function loadPlace() {
@@ -27,6 +27,13 @@ export function CardPlacePage() {
     }
     loadPlace();
   }, []);
+
+
+  useEffect(()=>{
+    localStorage.setItem('placeId', JSON.stringify(placeId))
+    // console.log(placeId,"local")
+  },[placeId])
+
 
 
   return (
@@ -82,7 +89,7 @@ export function CardPlacePage() {
             }
             title="Comentarios"
           />
-          <CommentsList></CommentsList>
+          <CommentsList filid={params}></CommentsList>
         </Card>
       </Box>
     </Box>

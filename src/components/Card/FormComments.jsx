@@ -10,9 +10,9 @@ import {
   Stack,
   Box,
 } from "@mui/material";
-import { useForm } from "react-hook-form";
+import { useForm, useFormState } from "react-hook-form";
 import { useNavigate, useParams } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import {
   postComment,
   deleteComment,
@@ -21,22 +21,26 @@ import {
 } from "../../api/list.api";
 import { colors } from "../styleBase";
 
-export function FormComments() {
+export function FormComments({ filid }) {
+  const storedPlaceId = JSON.parse(localStorage.getItem("placeId"));
+  // console.log(storedPlaceId,"local form");
+  const params = useParams();
   const {
     register,
     handleSubmit,
     formState: { errors },
     setValue,
-  } = useForm(); // validar el form, submit, check errors,
-  const params = useParams();
+  } = useForm({
+    defaultValues: { idPLace: storedPlaceId },
+  }); // validar el form, submit, check errors,
   const navigate = useNavigate();
 
   // hacer el post y verlo en el json
   const onSubmit = handleSubmit(async (data) => {
-    if (params.id) {   // console.log(data)
+    if (params.id) {
       await upComment(params.id, data);
     } else {
-      const respComment = await postComment(data); // console.log(respComment);
+      const respComment = await postComment(data);
       window.alert("Tu comentario fue guardado");
     }
     window.history.back();
@@ -67,7 +71,7 @@ export function FormComments() {
 
   return (
     <Box className="center">
-      <Card sx={{ mt: 5, backgroundColor: colors.brown, width:400}}>
+      <Card sx={{ mt: 5, backgroundColor: colors.brown, width: 400 }}>
         <CardHeader
           action={
             <IconButton
@@ -89,6 +93,7 @@ export function FormComments() {
         <CardContent>
           <form onSubmit={onSubmit}>
             <Stack spacing={2} margin={2}>
+            {/* Comment */}
               <TextField
                 fullWidth
                 placeholder="Comentario"
@@ -97,12 +102,13 @@ export function FormComments() {
                 {...register("comment", { required: true })}
               />
               {errors.comment && <span>El comentario es requerido</span>}
+               {/* Img */}
               <p>https://picsum.photos/589</p>
               <Input
                 placeholder="Imagen"
                 fullWidth
                 type="text"
-                {...register("img", { required: true })}
+                {...register("img", { required: false })}
               />
               {errors.img && <span>La imagen es requerida</span>}
               {/* <Input fullWidth accept="image/*" type="file"  {...register("description", { required: true })} /> */}
@@ -115,6 +121,7 @@ export function FormComments() {
               />
               {errors.img && <span>El nombre es requerido</span>}
               {/* <Input fullWidth accept="image/*" type="file"  {...register("description", { required: true })} /> */}
+              <input {...register("idPLace")} type="hidden" />
 
               <Button
                 sx={{

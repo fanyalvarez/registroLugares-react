@@ -5,23 +5,27 @@ import { useNavigate } from "react-router-dom";
 import { colors } from "../styleBase";
 import { getAllComments } from "../../api/list.api";
 
-export function CommentsList() {
+export function CommentsList({ filid }) {
   const [comments, setComments] = useState([]);
+
   const navigate = useNavigate();
 
   useEffect(() => {
     // console.log("comments cargados");
     async function loadComments() {
-      const resp = await getAllComments();
-      setComments(resp.data);
-      // console.log(resp);
+      const { data } = await getAllComments();
+      setComments(data);
     }
     loadComments();
   }, []);
 
+  const commentsFiltrados = comments.filter(
+    (comment) => comment.idPLace == filid.id
+  );
+
   return (
     <div>
-      {comments.map((comment) => (
+      {commentsFiltrados.map((comment) => (
         <CardContent key={comment.id}>
           <IconButton
             sx={{
@@ -33,8 +37,7 @@ export function CommentsList() {
             }}
             onClick={() => {
               navigate(`/FormComments/${comment.id}`);
-            }}
-          >
+            }}>
             <ModeIcon sx={{ color: colors.pink }}></ModeIcon>
           </IconButton>
           <Typography variant="h5" textAlign="left" sx={{ mb: 3 }}>
@@ -43,7 +46,9 @@ export function CommentsList() {
           <Typography textAlign="left" sx={{ mb: 3 }}>
             {comment.comment}
           </Typography>
+         { comment.img &&
           <CardMedia component="img" height="200" image={comment.img} />
+         } 
         </CardContent>
       ))}
     </div>
