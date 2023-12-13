@@ -51,7 +51,10 @@ export function Navigation() {
           <img src="/logo.png" alt="Logo" width={50} height={50} />
         </Link>
         <Box>
-          <Button onClick={()=>{setLogin(false)}}>
+          <Button
+            onClick={() => {
+              setLogin(false);
+            }}>
             <Link spacing={2} to="/ListPage">
               Lista de lugares
             </Link>
@@ -137,12 +140,14 @@ export function Navigation() {
             Mis lugares
           </MenuItem>
         </Link>
-        <MenuItem onClick={handleClose}>
-          <ListItemIcon>
-            <Logout fontSize="small" />
-          </ListItemIcon>
-          Logout
-        </MenuItem>
+        <Link spacing={2} to="/">
+          <MenuItem onClick={handleClose}>
+            <ListItemIcon>
+              <Logout fontSize="small" />
+            </ListItemIcon>
+            Logout
+          </MenuItem>
+        </Link>
       </Menu>
     </Card>
   );

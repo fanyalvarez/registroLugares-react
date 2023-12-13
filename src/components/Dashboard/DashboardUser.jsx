@@ -1,7 +1,7 @@
-
-
 export function DashboardUser() {
   return (
-    <div>DashboardUser</div>
-  )
+  
+      <img src="/construccion" alt="" />
+ 
+  );
 }
