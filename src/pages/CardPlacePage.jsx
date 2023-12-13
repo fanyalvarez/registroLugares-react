@@ -11,6 +11,7 @@ import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import AddIcon from "@mui/icons-material/Add";
 import { useState, useEffect } from "react";
 import { CommentsList } from "../components/Card/CommentsList";
+import { CommentsListUser } from "../components/Card/CommentsListUser";
 import { colors } from "../components/styleBase";
 import { getPlaceById, getAllList } from "../api/list.api";
 
@@ -19,6 +20,7 @@ export function CardPlacePage() {
   const params = useParams();
   const [place, setPlace] = useState({});
   const [placeId, setPlaceId] = useState(params.id);
+  const login = JSON.parse(localStorage.getItem("login"));
 
   useEffect(() => {
     async function loadPlace() {
@@ -28,13 +30,10 @@ export function CardPlacePage() {
     loadPlace();
   }, []);
 
-
-  useEffect(()=>{
-    localStorage.setItem('placeId', JSON.stringify(placeId))
+  useEffect(() => {
+    localStorage.setItem("placeId", JSON.stringify(placeId));
     // console.log(placeId,"local")
-  },[placeId])
-
-
+  }, [placeId]);
 
   return (
     <Box className="center">
@@ -56,7 +55,7 @@ export function CardPlacePage() {
                   textAlign: "center",
                 }}>
                 <ThumbUpOffAltIcon />
-           
+
                 <Typography sx={{ mx: 1 }}>{place.like}</Typography>
               </Box>
             </Box>
@@ -89,10 +88,14 @@ export function CardPlacePage() {
             }
             title="Comentarios"
           />
-          <CommentsList filid={params}></CommentsList>
+
+          {login ? (
+            <CommentsListUser filid={params} />
+          ) : (
+            <CommentsList filid={params} />
+          )}
         </Card>
       </Box>
     </Box>
   );
 }
-

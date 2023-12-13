@@ -5,7 +5,7 @@ import { useNavigate } from "react-router-dom";
 import { colors } from "../styleBase";
 import { getAllComments } from "../../api/list.api";
 
-export function CommentsList({ filid }) {
+export function CommentsListUser({ filid }) {
   const [comments, setComments] = useState([]);
 
   const navigate = useNavigate();
@@ -27,6 +27,19 @@ export function CommentsList({ filid }) {
     <div>
       {commentsFiltrados.map((comment) => (
         <CardContent key={comment.id}>
+          <IconButton
+            sx={{
+              float: "right",
+              p: 0,
+              mr: 3,
+              color: colors.pink,
+              "&:hover": { backgroundColor: colors.btnHoverIcon },
+            }}
+            onClick={() => {
+              navigate(`/FormComments/${comment.id}`);
+            }}>
+            <ModeIcon sx={{ color: colors.pink }}></ModeIcon>
+          </IconButton>
           <Typography variant="h5" textAlign="left" sx={{ mb: 3 }}>
             {comment.name}
           </Typography>

@@ -38,7 +38,7 @@ export function FormPlace() {
     } else {
       const respData = await postPlace(data);
     }
-    navigate(`/ListPage/`);
+    navigate(`/placesListUser/`);
   });
 
   // get place by id
@@ -54,6 +54,10 @@ export function FormPlace() {
         setValue("ciudad", respPlace.data.ciudad);
         setValue("estado", respPlace.data.estado);
         setValue("cp", respPlace.data.cp);
+        setValue("dislike",respPlace.data.dislike);
+        setValue("like",respPlace.data.like);
+        setValue("stateLike",respPlace.data.stateLike);
+        setValue("stateDislike",respPlace.data.stateDislike);
       }
     }
     loadPLace();
@@ -74,7 +78,7 @@ export function FormPlace() {
                 "&:hover": { backgroundColor: colors.btnHoverIcon },
               }}
               onClick={() => {
-                navigate(`/ListPage/`);
+                navigate(`/placesListUser/`);
               }}>
               <CloseIcon sx={{ color: colors.pink }}></CloseIcon>
             </IconButton>
@@ -153,7 +157,7 @@ export function FormPlace() {
                 const confirm = window.confirm("Estas seguro?");
                 if (confirm) {
                   await deletePlace(params.id);
-                  navigate(`/ListPage/`);
+                  navigate(`/placesListUser/`);
                 }
               }}>
               ELiminar

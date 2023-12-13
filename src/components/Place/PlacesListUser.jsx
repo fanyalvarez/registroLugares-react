@@ -20,7 +20,7 @@ import { useNavigate } from "react-router-dom";
 import { getAllList, uplikes } from "../../api/list.api";
 import { colors } from "../styleBase";
 
-export function PlacesList() {
+export function PlacesListUser() {
   const navigate = useNavigate();
   const [change, setChange] = useState(true);
 
@@ -74,7 +74,7 @@ export function PlacesList() {
   // };
 
   return (
-    <>
+    <div className="center">
       <TableContainer
         component={Paper}
         sx={{ mt: 5, backgroundColor: colors.brown, maxWidth: 1200 }}>
@@ -96,6 +96,9 @@ export function PlacesList() {
               </TableCell>
               <TableCell sx={{ color: colors.white }} align="center">
                 Ver
+              </TableCell>
+              <TableCell sx={{ color: colors.white }} align="center">
+                Edit
               </TableCell>
             </TableRow>
           </TableHead>
@@ -176,11 +179,20 @@ export function PlacesList() {
                     Ir
                   </Button>
                 </TableCell>
+                {/* edit */}
+                <TableCell>
+                  <IconButton
+                    onClick={() => {
+                      navigate(`/FormPlace/${place.id}`);
+                    }}>
+                    <EditIcon />
+                  </IconButton>
+                </TableCell>
               </TableRow>
             ))}
           </TableBody>
         </Table>
       </TableContainer>
-    </>
+    </div>
   );
 }

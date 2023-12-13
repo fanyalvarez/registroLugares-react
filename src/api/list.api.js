@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const urlApi = axios.create({ baseURL: 'https://api-places-hvof.onrender.com/' })
+const urlApi = axios.create({ baseURL: 'http://localhost:3030/' })
 
 // lugares
 // export const getAllList = () => axios.get("http://localhost:3030/lugares");
@@ -16,8 +16,8 @@ export const uplikes = (id, like, state) => urlApi.patch(`/lugares/${id}/`, like
 export const getAllComments = () => urlApi.get("/comments");
 export const getComment = (id) => urlApi.get(`/comments/${id}/`)
 export const postComment = (comment) => urlApi.post("comments/", comment);
-export const deleteComment = (id) => axios.delete(`https://api-places-hvof.onrender.com/comments/${id}`);
-export const upComment = (id, textComment) => axios.put(`https://api-places-hvof.onrender.com/comments/${id}`, textComment);
+export const deleteComment = (id) => axios.delete(`http://localhost:3030/comments/${id}`);
+export const upComment = (id, textComment) => axios.put(`http://localhost:3030/comments/${id}`, textComment);
 
 //usuarios
 export const postUser = (user) => urlApi.post("/users/", user)

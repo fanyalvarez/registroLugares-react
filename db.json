@@ -1,19 +1,19 @@
 {
   "lugares": [
     {
-      "id": 1,
+      "like": 25,
+      "dislike": 23,
       "nombre": "Museo Universitario del Chopo",
       "descripcion": "El edificio es sumamente interesante. Vale la pena visitar la Librería y ver una de las funciones del Cinematógrafo. El personal de la Librería, Taquilla y los custodios son muy amables, todos muestran una excelente actitud de servicio",
-      "estado": "Ciudad de México",
-      "ciudad": "Cuauhtémoc",
-      "colonia": "Sta María la Ribera",
       "calle": "Dr. Enrique González Martínez",
-      "numero": 10,
+      "numero": "10",
+      "colonia": "Sta María la Riber",
+      "ciudad": "Cuauhtémoc",
+      "estado": "Ciudad de México",
       "cp": "6400",
       "stateLike": true,
       "stateDislike": false,
-      "like": 25,
-      "dislike": 23
+      "id": 1
     },
     {
       "id": 2,
@@ -36,7 +36,7 @@
       "like": 1,
       "dislike": 1,
       "nombre": "Cafeteria serena",
-      "descripcion": "wdqwdq",
+      "descripcion": "Muy padre lugar. Y todo muy rico. Y todo muy barato. Disfrutas mucho el estar ahí. Lo recomiendo. Amé el restaurante, amo Gossip Girl",
       "calle": "1111",
       "numero": "11",
       "colonia": "11",
@@ -53,63 +53,63 @@
       "name": "Coraline Jones",
       "id": 1,
       "idPLace": 1
-    },
-    {
+      },
+      {
       "comment": "Place 1 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae labore autem quibusdam hic laboriosam ex a obcaecati libero enim numquam.",
       "img": "https://picsum.photos/590",
       "name": "Wybie Lovat",
       "id": 2,
       "idPLace": 1
-    },
-    {
+      },
+      {
       "comment": "Place 2 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae labore autem quibusdam hic laboriosam ex a obcaecati libero enim numquam.",
       "img": "https://picsum.photos/590",
       "name": "Wybie Lovat",
       "id": 3,
       "idPLace": 2
-    },
-    {
+      },
+      {
       "comment": "Place 2 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae labore autem quibusdam hic laboriosam ex a obcaecati libero enim numquam.",
       "img": "https://picsum.photos/601",
       "name": "Coraline Jones",
       "id": 4,
       "idPLace": 2
-    },
-    {
+      },
+      {
       "idPLace": "1",
       "comment": "Place 1 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae labore autem quibusdam hic laboriosam ex a obcaecati libero enim numquam.",
-      "img": "qdqwd",
+      "img": "https://picsum.photos/382",
       "name": "wdqdwqdq",
       "id": 5
-    },
-    {
+      },
+      {
       "idPLace": "2",
       "comment": "Place 2 Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repudiandae labore autem quibusdam hic laboriosam ex a obcaecati libero enim numquam.",
       "img": "https://picsum.photos/600",
       "name": "Fany",
       "id": 6
-    },
-    {
+      },
+      {
       "idPLace": "3",
       "comment": "dqwdqd",
       "img": "https://picsum.photos/589",
       "name": "Fany",
       "id": 7
-    },
-    {
+      },
+      {
       "idPLace": "3",
       "comment": "dqw",
       "img": "",
       "name": "dqw",
       "id": 8
-    },
-    {
+      },
+      {
       "idPLace": "3",
       "comment": "dqd",
       "img": "https://picsum.photos/582",
       "name": "Coraline Jones",
       "id": 9
-    }
+      }
   ],
   "users": [
     {
