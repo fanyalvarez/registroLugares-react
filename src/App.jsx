@@ -6,6 +6,7 @@ import { Login } from "./components/Register/Login";
 import { SignUp } from "./components/Register/SignUp";
 
 import { ListPage } from "./pages/ListPage";
+import { ListPageUser } from "./pages/ListPageUser";
 import { PlacesListUser } from "./components/Place/PlacesListUser";
 import { FormPlace } from "./components/Place/FormPlace";
 
@@ -25,6 +26,7 @@ function App() {
         <Route path="/Login/" element={<Login />} />
 
         <Route path="/ListPage" element={<ListPage />} />
+        <Route path="/ListPageUser" element={<ListPageUser />} />
         <Route path="/PlacesListUser" element={<PlacesListUser />} />
         <Route path="/FormPlace" element={<FormPlace />} />
         <Route path="/FormPlace/:id" element={<FormPlace />} />
